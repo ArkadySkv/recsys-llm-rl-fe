@@ -98,13 +98,13 @@
 
 Мой пайплайн опирается на передовые исследования в области автоматизации Feature Engineering и применения LLM в RecSys:
 
-1. **CAAFE: Context-Aware Automated Feature Engineering** (Hollmann et al., NeurIPS 2023, arXiv:2305.03403)
+1. [**CAAFE: Context-Aware Automated Feature Engineering**](https://arxiv.org/pdf/2305.03403) (Hollmann et al., NeurIPS 2023)
    - *Как связано с моей работой:* CAAFE одним из первых показал, что LLM могут генерировать семантически осмысленные признаки для табличных данных. Мой подход (Recipe-based) развивает эту идею, ограничивая LLM строгим каталогом рецептов для исключения галлюцинаций.
-2. **LLM-FE: Automated Feature Engineering for Tabular Data with LLMs as Evolutionary Optimizers** (arXiv:2503.14434)
+2. [**LLM-FE: Automated Feature Engineering for Tabular Data with LLMs as Evolutionary Optimizers**](https://arxiv.org/pdf/2503.14434)
    - *Как связано с моей работой:* Формулирует FE как задачу поиска программ. Мы используем похожую парадигму, но применяем Exhaustive Search для отбора признаков, что гарантирует нахождение глобального оптимума на заданном пуле.
-3. **AutoField: Automating Feature Selection in Deep Recommender Systems** (Wang et al., WWW 2022, DOI: 10.1145/3485447.3512070)
+3. [**AutoField: Automating Feature Selection in Deep Recommender Systems**](https://arxiv.org/pdf/2204.09078) (Wang et al., WWW 2022, DOI: 10.1145/3485447.3512070)
    - *Как связано с моей работой:* Статья обосновывает необходимость автоматического отбора признаков в RecSys. exhaustive search является детерминированной альтернативой RL-селектору, предложенному в AutoField.
-4. **Dual-agent RL for Automated Feature Generation** (IJCAI 2025, DOI: 10.24963/ijcai.2025/578)
+4. [**Dual-agent RL for Automated Feature Generation**](https://arxiv.org/pdf/2505.12628) (IJCAI 2025, DOI: 10.24963/ijcai.2025/578)
    - *Как связано с моей работой:* Показывает важность разделения генератора и селектора. В моём пайплайне LLM выступает генератором, а Exhaustive Search — селектором.
-5. **AutoML for Deep Recommender Systems: A Survey** (Zheng et al., arXiv:2203.13922)
+5. [**AutoML for Deep Recommender Systems: A Survey**](https://arxiv.org/pdf/2203.13922) (Zheng et al.)
    - *Как связано с моей работой:* Подтверждает, что Feature Selection Search — один из пяти ключевых компонентов AutoRecSys, что валидирует актуальность выбранной нами задачи.

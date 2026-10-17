@@ -16,6 +16,8 @@ help:
 
 all: split features exhaustive select final figures experiments report
 
+rl-all: rl-prepare rl-train-gpt rl-train-reward rl-train-ppo rl-evaluate rl-figures
+
 # Данные и фичи 
 split:
 	@echo "[split] time-based train/valid/test split..."
@@ -76,3 +78,27 @@ clean:
 	rm -f data/processed/*.parquet data/processed/*.csv
 	rm -f reports/figures/*.png
 	@echo " очищено (raw-данные и код сохранены)"
+
+rl-prepare:
+	@echo "[rl] Preparing user sequences..."
+	python3 -m src.rl.prepare_sequences
+
+rl-train-gpt: rl-prepare
+	@echo "[rl] Training GPT-2 next-item predictor..."
+	python3 -m src.rl.train_gpt
+
+rl-train-reward: rl-prepare
+	@echo "[rl] Training reward model..."
+	python3 -m src.rl.train_reward_model
+
+rl-train-ppo: rl-train-gpt rl-train-reward
+	@echo "[rl] Fine-tuning with REINFORCE..."
+	python3 -m src.rl.train_rl
+
+rl-evaluate: rl-train-ppo
+	@echo "[rl] Evaluating base vs RL-tuned models..."
+	python3 -m src.rl.evaluate
+
+rl-figures:
+	@echo "[rl] Generating plots for Task 2..."
+	python3 -m src.visualization.make_figures_rl
