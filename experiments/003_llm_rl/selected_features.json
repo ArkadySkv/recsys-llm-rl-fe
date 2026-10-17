@@ -1,0 +1,6 @@
+[
+  "llm_user_slope_180d",
+  "llm_item_trend_acceleration_30d",
+  "llm_item_repeat_ratio_365d",
+  "llm_user_item_age_at_event_180d"
+]

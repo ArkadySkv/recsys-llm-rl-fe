@@ -1,0 +1,10 @@
+feature,importance
+llm_user_inter_event_time_30d,3303
+llm_user_unique_ratio_30d,3095
+llm_user_slope_180d,3070
+llm_user_entropy_90d,3050
+llm_item_drift_365d,1174
+llm_item_trend_acceleration_30d,905
+llm_user_session_count_7d,162
+llm_user_item_age_at_event_180d,151
+llm_item_repeat_ratio_365d,90
