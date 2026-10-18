@@ -3,16 +3,29 @@
 .PHONY: all help split features exhaustive select final figures experiments report clean
 
 help:
-	@echo "Доступные цели:"
-	@echo "  make all         — полный пайплайн (split -> features -> exhaustive -> select -> final)"
+	@echo "HELP:"
+	@echo ""
+	@echo "--- Task 1: Feature Engineering (LLM + Exhaustive Search) ---"
+	@echo "  make all         — полный пайплайн Задания 1 (split -> features -> exhaustive -> select -> final)"
 	@echo "  make split       — time-based train/valid/test split (анти-лик)"
-	@echo "  make features    — ручные + LLM-фичи"
+	@echo "  make features    — расчёт ручных и LLM-фич"
 	@echo "  make exhaustive  — exhaustive search на валидации"
 	@echo "  make select      — выбор лучшего subset LLM-фичей"
 	@echo "  make final       — one-shot оценка на test"
-	@echo "  make figures     — графики для отчета"
+	@echo ""
+	@echo "--- Task 2: Reinforcement Learning for RecSys ---"
+	@echo "  make rl-all      — полный пайплайн Задания 2 (prepare -> gpt -> reward -> rl -> eval)"
+	@echo "  make rl-prepare  — подготовка последовательностей пользователей"
+	@echo "  make rl-train-gpt — обучение базовой GPT-2 (next-item prediction)"
+	@echo "  make rl-train-reward — обучение Reward Model"
+	@echo "  make rl-train-ppo — RL-дообучение (REINFORCE + KL-штраф)"
+	@echo "  make rl-evaluate — оценка Base vs RL-Tuned модели"
+	@echo ""
+	@echo "--- Utilities ---"
+	@echo "  make figures     — графики для отчета Задания 1"
+	@echo "  make rl-figures  — графики для отчета Задания 2"
 	@echo "  make experiments — копирование артефактов в experiments/"
-	@echo "  make clean       — удалить промежуточные файлы"
+	@echo "  make clean       — удалить промежуточные файлы (данные и графики)"
 
 all: split features exhaustive select final figures experiments report
 
